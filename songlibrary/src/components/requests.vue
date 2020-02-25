@@ -2,8 +2,8 @@
 <template>
   <div>
       <ul id="requests">
-        <li><button v-bind:class="isFieldShowing" v-on:click="toggleInput">Enter Song Selection</button></li>
-        <!-- <li><input type="text" placeholder="Enter Song or Artist Name"></li> -->
+        <li><button v-on:click="toggleInput">Enter Song Selection</button></li>
+        <li><input type="text" placeholder="Enter Song or Artist Name" v-show="isFieldShowing"></li>
         <li><button>Vote on Songs</button></li>
         <li><button>Bar</button></li>
       </ul>
@@ -25,7 +25,7 @@ export default {
     },
     methods: {
         toggleInput: function (){
-            this.isFieldShowing = !this.isFieldShowing;
+            this.isFieldShowing = !this.isFieldShowing; //Conditionally shows the input field when "Enter Song Selection" button is clicked//
 
         }
 
@@ -42,7 +42,7 @@ export default {
 
     }
     li{
-       margin: 10%;
+       /* margin: 10%; */
         float: left;
 
     }
@@ -50,8 +50,8 @@ export default {
         display: inline-block;
         border-color:#c6ecd9;
         color: #3b3b3b;
-        padding: 10px 20px;
-        margin: 10px;
+        padding: 10px;
+        margin: 2px;
         width: 120px;
         height: 120px;
         border-radius: 100px;
