@@ -12,6 +12,10 @@ import requests from './components/requests.vue'
 export default {
   components: {
     'app-requests': requests
+  },
+  name: 'app',
+  data: function (){
+   
   }
 }
 </script>
