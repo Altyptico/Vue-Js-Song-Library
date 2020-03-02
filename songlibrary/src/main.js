@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import App from './App.vue';
 import Vuex from 'vuex'
-import { songs } from './components/songs';
+// import { songs } from './components/songs';
 
 
 Vue.use(Vuex);
@@ -9,7 +9,7 @@ Vue.use(Vuex);
 Vue.config.productionTip = false
 
 new Vue({
-  song: songs,
+  // song: songs,
   render: h => h(App),
 }).$mount('#app')
 

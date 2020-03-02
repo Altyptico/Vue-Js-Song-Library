@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <app-requests> </app-requests>
+    <requests @update-song="update"></requests>
   </div>
 </template>
 
@@ -16,6 +17,11 @@ export default {
   name: 'app',
   data: function (){
    
+  },
+  methods: {
+    update(songLibrary){
+        this.songLibrary = songLibrary;
+    }
   }
 }
 </script>

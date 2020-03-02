@@ -14,35 +14,35 @@
 
 <script>
 export default {
-//     props: {
-//       isFieldShowing: {                 //error message: avoid mutating a prop directly since the value will be overwritten whenever the parent component re-renders. Use a data or computed property based on the prop's value.//
-//       type: Boolean,
-//       default: false
-//   },
-//   song:{
-//       type: String,
-//       default: ""
-//   },
-//   songLibrary:{
-//      type: Array,
-//      default: function(){ return []}
-//   }
-//     },
-//    data() {
- 
-//     },
-    computed:{
-        
+    props: {
+      isFieldShowing: {                 //error message: avoid mutating a prop directly since the value will be overwritten whenever the parent component re-renders. Use a data or computed property based on the prop's value.//
+      type: Boolean,
+      default: false
+  },
+  song:{
+      type: String,
+      default: ""
+  },
+  songLibrary:{
+     type: Array,
+     default: function(){ return []}
+  }
     },
+   data() {
+ 
+    },
+
     methods: {
         toggleInput: function (){
-            this.isFieldShowing = !this.isFieldShowing; //Conditionally shows the input field when "Enter Song Selection" button is clicked//
+           this.isFieldShowing = !this.isFieldShowing; //Conditionally shows the input field when "Enter Song Selection" button is clicked//
 
         },
         addSong: function (){
-                this.songLibrary.push();
+               let mySong = this.songLibrary;
+                mySong.push();
                 console.log(this.songLibrary);
                 this.song = '';
+                this.$emit("add-song", mySong);
         }
     }
 
