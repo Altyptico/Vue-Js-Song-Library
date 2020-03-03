@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <app-requests> </app-requests>
+    <app-requests :newSong="song" @songAdded="song = $event"></app-requests>
+  
   </div>
 </template>
 
@@ -8,11 +9,17 @@
 
 import requests from './components/requests.vue'
 
-
 export default {
+   data() {
+      return {
+          song: ''
+      }
+  },
   components: {
     'app-requests': requests
-  }
+  },
+  name: 'app',
+ 
 }
 </script>
 

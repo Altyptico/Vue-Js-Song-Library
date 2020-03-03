@@ -1,10 +1,10 @@
 /* eslint-disable vue/no-parsing-error */
 <template>
   <div>
+    <h1>{{newSong}}</h1>
       <ul id="requests">
-        <li><button v-on:click="toggleInput">Enter Song Selection</button></li>
-        <li><input v-model="song" v-on:keypress.enter="addSong" type="text" placeholder="Enter Song or Artist Name" v-show="isFieldShowing" ></li>
-        <!-- <li><button v-on:keypresss.enter="$emit('addSong')"></button></li> -->
+        <li><input :value="song" @input="addSong" type="text" placeholder="Enter Song or Artist Name" ></li>
+        <li><button >Enter Song Selection</button></li> 
         <li><button>Vote on Songs</button></li>
         <li><button>Bar</button></li>
       </ul>
@@ -15,35 +15,30 @@
 <script>
 export default {
     props: {
-         isFieldShowing: {                 //error message: avoid mutating a prop directly since the value will be overwritten whenever the parent component re-renders. Use a data or computed property based on the prop's value.//
-             type: Boolean,
-             default: false
-         },
-         song:{
-             type: String,
-             default: ""
-         }, 
-         songLibrary:{
-            type: Array,
-            default: function(){ return []}
-         }
-        
+      newSong:{
+          type: String,
+          default: ''
+      },
+      songLibrary:{
+     type: Array,
+     default: function(){ return []}
+  }
     },
    data() {
-      
+      return {
+          song: ''
+      }
     },
+
     methods: {
-        toggleInput: function (){
-            this.isFieldShowing = !this.isFieldShowing; //Conditionally shows the input field when "Enter Song Selection" button is clicked//
-
-        },
-        addSong: function(){
-                this.songLibrary.push();
-                console.log(this.songLibrary);
-                this.song = '';
+        addSong(event){
+           this.song = event.target.value;
+           this.$emit('songAdded', this.song); //error message: avoid mutating a prop directly since the value will be overwritten whenever the parent component re-renders. Use a data or computed property based on the prop's value https://www.youtube.com/watch?v=PPmg7ntQjzc//
+           console.log(this.newSong);
         }
-
     }
+
+
 }
 </script>
 
@@ -78,6 +73,8 @@ export default {
     input{
         display: inline-block;
         margin-top: 50px;
+        height: 30px;
+        width: 300px;
     
     }
 </style>
