@@ -22,7 +22,7 @@ export default {
          song:{
              type: String,
              default: ""
-         },
+         }, 
          songLibrary:{
             type: Array,
             default: function(){ return []}
