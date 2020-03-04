@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <app-requests :newSong="song" @songAdded="song = $event"></app-requests>
+    <app-requests :newSong="song" @songAdded="song = $event" ></app-requests>
   
   </div>
 </template>

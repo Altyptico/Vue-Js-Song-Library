@@ -1,14 +1,14 @@
 /* eslint-disable vue/no-parsing-error */
 <template>
   <div>
-    <h1>{{newSong}}</h1>
+    <h1>Newsong:  {{newSong}}</h1>
       <ul id="requests">
-        <li><input :value="song" @input="addSong" type="text" placeholder="Enter Song or Artist Name" ></li>
-        <li><button >Enter Song Selection</button></li> 
+        <li><input :value="song" @input="addSong" @keyup.enter="addNewSong" type="text" placeholder="Enter Song or Artist Name" ></li>
+        <li><button @click="addNewSong">Enter Song Selection</button></li> 
         <li><button>Vote on Songs</button></li>
         <li><button>Bar</button></li>
+        <p>{{songLibrary}}</p>
       </ul>
-        <p>{{song}}</p>
   </div>
 </template>
 
@@ -34,7 +34,10 @@ export default {
         addSong(event){
            this.song = event.target.value;
            this.$emit('songAdded', this.song); //error message: avoid mutating a prop directly since the value will be overwritten whenever the parent component re-renders. Use a data or computed property based on the prop's value https://www.youtube.com/watch?v=PPmg7ntQjzc//
-           console.log(this.newSong);
+        },
+        addNewSong: function(){
+          this.songLibrary.push(this.newSong);
+          console.log(this.songLibrary);
         }
     }
 
