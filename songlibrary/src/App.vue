@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <app-requests :newSong="song" @songAdded="song = $event" ></app-requests>
-    <app-search></app-search>
+    <app-search :songInfo="songInfo"></app-search>
     <app-footer :title="title" :year="year"></app-footer>
   
   </div>
@@ -18,7 +18,12 @@ export default {
       return {
           song: '',
           title: 'Magnum Opus Song Library',
-          year: 2021
+          year: 2021,
+          songInfo: [
+            {name: 'This Must Be The Place', artist:'Talking Heads', genre: 'Alternative/Indie', year: 1983},
+            {name: 'The Way I Am', artist:'Ingrid Michaelson', genre: 'Alternative/Indie', year: 2006},
+            {name: '', artist:'', genre: '', year: 0}
+          ]
       }
   },
   components: {
