@@ -1,13 +1,13 @@
 /* eslint-disable vue/no-parsing-error */
 <template>
-  <div>
-    <h1>Newsong:  {{newSong}}</h1>
+  <div class="header">
+    <!-- <h1>Newsong:  {{newSong}}</h1> -->
       <ul id="requests">
         <li><input :value="song" @input="addSong" @keyup.enter="addNewSong" type="text" placeholder="Enter Song or Artist Name" ></li>
         <li><button @click="addNewSong">Enter Song Selection</button></li> 
         <li><button>Vote on Songs</button></li>
         <li><button>Bar</button></li>
-        <p>{{songLibrary}}</p>
+        <!-- <p>{{songLibrary}}</p> -->
       </ul>
   </div>
 </template>
@@ -49,12 +49,21 @@ export default {
 <style scoped>
 @import url('https://fonts.googleapis.com/css?family=Anton|Dosis:400,800|Francois+One|Montserrat&display=swap');
 
+    .header{
+      background-color: #b4b4b4;
+      margin:0 -9999rem;
+      padding: 0.25rem 9999rem;
+      height: 250px;
+      max-width: 100%;
+
+    }
     ul{
        list-style-type: none; 
+       padding: 25px;
 
     }
     li{
-       /* margin: 10%; */
+        padding: 20px;
         float: left;
 
     }
@@ -76,6 +85,7 @@ export default {
     input{
         display: inline-block;
         margin-top: 50px;
+        margin-right: -30px;
         height: 30px;
         width: 300px;
     
