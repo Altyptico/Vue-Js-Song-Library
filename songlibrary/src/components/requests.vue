@@ -1,28 +1,33 @@
 /* eslint-disable vue/no-parsing-error */
 <template>
-  <div class="header">
+  <div class="request">
     <!-- <h1>Newsong:  {{newSong}}</h1> -->
-      <ul id="requests">
+      <ul id="navButtons">
         <li><input :value="song" @input="addSong" @keyup.enter="addNewSong" type="text" placeholder="Enter Song or Artist Name" ></li>
-        <li><button @click="addNewSong">Enter Song Selection</button></li> 
+        <li><button @click="addNewSong">Search Songs</button></li> 
         <li><button>Vote on Songs</button></li>
-        <li><button>Bar</button></li>
-        <!-- <p>{{songLibrary}}</p> -->
+        <li><button>Suggest a Song</button></li>
       </ul>
+      <!-- <div class="words">{{songLibrary}}</div> -->
   </div>
+  
 </template>
 
 <script>
 export default {
     props: {
-      newSong:{
-          type: String,
-          default: ''
-      },
-      songLibrary:{
-     type: Array,
-     default: function(){ return []}
-  }
+          newSong:{
+              type: String,
+              default: ''
+          },
+          songLibrary:{
+              type: Array,
+              default: function(){ return []}
+          },
+          songInfo:{
+              type: Array,
+              default: function(){ return []}
+          }
     },
    data() {
       return {
@@ -34,10 +39,12 @@ export default {
         addSong(event){
            this.song = event.target.value;
            this.$emit('songAdded', this.song); //error message: avoid mutating a prop directly since the value will be overwritten whenever the parent component re-renders. Use a data or computed property based on the prop's value https://www.youtube.com/watch?v=PPmg7ntQjzc//
+
         },
         addNewSong: function(){
-          this.songLibrary.push(this.newSong);
-          console.log(this.songLibrary);
+          this.songInfo.push(this.song);
+          console.log(this.songInfo);
+          return this.song = '';
         }
     }
 
@@ -49,7 +56,7 @@ export default {
 <style scoped>
 @import url('https://fonts.googleapis.com/css?family=Anton|Dosis:400,800|Francois+One|Montserrat&display=swap');
 
-    .header{
+    .request{
       background-color: #b4b4b4;
       margin:0 -9999rem;
       padding: 0.25rem 9999rem;
@@ -89,5 +96,8 @@ export default {
         height: 30px;
         width: 300px;
     
+    }
+    .words{
+        display:inline;
     }
 </style>

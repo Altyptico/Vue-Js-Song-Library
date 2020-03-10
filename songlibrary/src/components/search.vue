@@ -1,13 +1,19 @@
 <template>
   <div>
         <h3> Song Library</h3>
+
          <p v-for="song in songInfo" v-bind:key="song.name">{{song.name}}<br/>{{song.artist}} <br/> {{song.genre}} <br/> {{song.year}}</p>
-         <p>{{newSong}}</p>
+         <!-- <p>{{}}</p> -->
+       
+      
   </div>
 </template>
 
 <script>
+ 
+
 export default {
+  
       props:{
           songInfo:{
               type: Array
@@ -18,6 +24,10 @@ export default {
 
       }
    },
+   components: {
+     
+   },
+  
       methods: {
 
       }
