@@ -1,17 +1,18 @@
 <template>
   <div id="app">
-    <app-requests :newSong="song" @songAdded="song = $event" ></app-requests>
+    <router-view></router-view>
+    <!-- <app-requests :newSong="song" @songAdded="song = $event" ></app-requests>
     <app-search :songInfo="songInfo"></app-search>
-    <app-footer :title="title" :year="year"></app-footer>
+    <app-footer :title="title" :year="year"></app-footer> -->
   
   </div>
 </template>
 
 <script>
 
-import requests from './components/requests.vue'
-import footer from './components/Footer.vue'
-import search from './components/search.vue'
+// import requests from './components/requests.vue'
+// import footer from './components/Footer.vue'
+// import search from './components/search.vue'
 
 export default {
    data() {
@@ -26,9 +27,9 @@ export default {
       }
   },
   components: {
-    'app-requests': requests,
-    'app-search': search,
-     'app-footer': footer
+    // 'app-requests': requests,
+    // 'app-search': search,
+    //  'app-footer': footer
   },
   name: 'app',
  
