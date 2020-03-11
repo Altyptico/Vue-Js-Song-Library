@@ -78,13 +78,13 @@ label{
       font-family:'Francois One', 'sans-serif';
 }
  button{
-        display: inline-block;
+
         border-color:#c6ecd9;
         color: #3b3b3b;
         padding: 10px;
         margin: 2px;
-        width: 60px;
-        height: 120px;
+        width: 80px;
+        height: 80px;
         border-radius: 100px;
         background-color: #8cd9b3; /* Green */
         text-align: center;
