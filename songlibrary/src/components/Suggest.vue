@@ -61,11 +61,12 @@ export default {
               artist: "",
               genre:"",
               year: 0,
-             songLibrary: [
+             
+        },
+        songLibrary: [
             {name: 'This Must Be The Place', artist:'Talking Heads', genre: 'Alternative/Indie', year: 1983},
             {name: 'The Way I Am', artist:'Ingrid Michaelson', genre: 'Alternative/Indie', year: 2006}
           ]
-        },
         
       }
    },
