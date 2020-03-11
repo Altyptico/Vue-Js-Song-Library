@@ -2,10 +2,11 @@
   <div>
         <h3> Suggest a Song</h3>
             <form>
-                  <label>Name:</label><input ><br/>
-                  <label>Artist:</label><input><br/>
-                  <label>Genre:</label><input><br/>
-                  <label>Year:</label><input>
+                  <label>Name:</label><input   :value="song" @input="addSong" @keyup.enter="addNewSong" ><br/>
+                  <label>Artist:</label><input :value="song" @input="addSong" @keyup.enter="addNewSong"><br/>
+                  <label>Genre:</label><input  :value="song" @input="addSong" @keyup.enter="addNewSong"><br/>
+                  <label>Year:</label><input  :value="song" @input="addSong" @keyup.enter="addNewSong"> <br/>
+                  <button @click="addNewSong" >Submit Song</button>
             </form>
 
       
@@ -17,12 +18,23 @@
 
 export default {
   
-      props:{
-        
-      },
+       props: {
+          newSong:{
+              type: String,
+              default: ''
+          },
+          songLibrary:{
+              type: Array,
+              default: function(){ return []}
+          },
+          songInfo:{
+              type: Array,
+              default: function(){ return []}
+          }
+    },
    data() {
       return {
-
+        song: ''
       }
    },
    components: {
@@ -30,7 +42,16 @@ export default {
    },
   
       methods: {
+            addSong(event){
+           this.song = event.target.value;
+           this.$emit('songAdded', this.song); //error message: avoid mutating a prop directly since the value will be overwritten whenever the parent component re-renders. Use a data or computed property based on the prop's value https://www.youtube.com/watch?v=PPmg7ntQjzc//
 
+        },
+            addNewSong: function(){
+          this.songInfo.push(this.song);
+          console.log(this.songInfo);
+          return this.song = '';
+        }
       }
 
 
@@ -56,5 +77,20 @@ label{
       text-align: center;
       font-family:'Francois One', 'sans-serif';
 }
+ button{
+        display: inline-block;
+        border-color:#c6ecd9;
+        color: #3b3b3b;
+        padding: 10px;
+        margin: 2px;
+        width: 60px;
+        height: 120px;
+        border-radius: 100px;
+        background-color: #8cd9b3; /* Green */
+        text-align: center;
+        font-family:'Francois One', 'sans-serif';
+        font-size: 18px;
+        font-weight: bold;
+    }
    
 </style>

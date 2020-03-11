@@ -6,7 +6,7 @@
         <li><router-link to="/" exact><button>Home</button></router-link></li>
         <li><router-link to="/Vote" exact><button>Vote on Songs</button></router-link></li>
         <li><router-link to="/Suggest" exact><button>Suggest a Song</button></router-link></li>
-        <li><button @click="addNewSong">Search Songs</button></li>
+        <li><button>Search Songs</button></li>
         <li><input :value="song" @input="addSong" @keyup.enter="addNewSong" type="text" placeholder="Enter Song or Artist Name" ></li>
          
         
