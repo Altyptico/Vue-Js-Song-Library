@@ -22,7 +22,7 @@
                               <div id="preview">
                                           <h3>Preview Submission</h3>
 
-                                          <p>Name: {{suggest.song}}</p><br/>
+                                          <p>Song Name: {{suggest.song}}</p><br/>
                                           <p>Artist: {{suggest.artist}}</p><br/>
                                           <p>Genre: {{suggest.genre}}</p><br/>
                                           <p>Year: {{suggest.year}}</p><br/>
@@ -55,7 +55,8 @@ export default {
          
 //     },
    data() {
-      return {
+       
+     return {
         suggest:{
               song: "",
               artist: "",
@@ -64,9 +65,9 @@ export default {
              
         },
         songLibrary: [
-            {name: 'This Must Be The Place', artist:'Talking Heads', genre: 'Alternative/Indie', year: 1983},
-            {name: 'The Way I Am', artist:'Ingrid Michaelson', genre: 'Alternative/Indie', year: 2006}
-          ]
+            {name: 'This Must Be The Place', artist:'Talking Heads', genre: 'Alternative/Indie', year: 1983}
+            // {name: 'The Way I Am', artist:'Ingrid Michaelson', genre: 'Alternative/Indie', year: 2006}
+        ]
         
       }
    },
@@ -81,7 +82,7 @@ export default {
 
             // },
             addNewSong: function(){
-          this.songLibrary.push(this.suggest.song);
+          this.songLibrary.push(this.suggest.artist, this.suggest.genre, this.suggest.year);
           console.log(this.songLibrary);
         }
       }
