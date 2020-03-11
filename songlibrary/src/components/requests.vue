@@ -3,10 +3,13 @@
   <nav class="request">
     <!-- <h1>Newsong:  {{newSong}}</h1> -->
       <ul id="navButtons">
+        <li><router-link to="/" exact><button>Home</button></router-link></li>
+        <li><router-link to="/Vote" exact><button>Vote on Songs</button></router-link></li>
+        <li><router-link to="/Suggest" exact><button>Suggest a Song</button></router-link></li>
+        <li><button @click="addNewSong">Search Songs</button></li>
         <li><input :value="song" @input="addSong" @keyup.enter="addNewSong" type="text" placeholder="Enter Song or Artist Name" ></li>
-        <li><button @click="addNewSong">Search Songs</button></li> 
-        <li><router-link to="/Vote"><button>Vote on Songs</button></router-link></li>
-        <li><router-link to="/Suggest"><button>Suggest a Song</button></router-link></li>
+         
+        
       </ul>
       <!-- <div class="words">{{songLibrary}}</div> -->
   </nav>
@@ -92,12 +95,15 @@ export default {
     input{
         display: inline-block;
         margin-top: 50px;
-        margin-right: -30px;
+        margin-left: -30px;
         height: 30px;
         width: 300px;
     
     }
     .words{
         display:inline;
+    }
+    .router-link-active button{
+            background-color: #76b393;
     }
 </style>

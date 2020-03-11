@@ -1,7 +1,8 @@
 <template>
   <div id="app">
+    <app-requests :newSong="song" @songAdded="song = $event" ></app-requests>
     <router-view></router-view>
-    <!-- <app-requests :newSong="song" @songAdded="song = $event" ></app-requests>
+    <!-- 
     <app-search :songInfo="songInfo"></app-search>
     <app-footer :title="title" :year="year"></app-footer> -->
   
@@ -10,7 +11,7 @@
 
 <script>
 
-// import requests from './components/requests.vue'
+import requests from './components/requests.vue'
 // import footer from './components/Footer.vue'
 // import search from './components/search.vue'
 
@@ -27,7 +28,7 @@ export default {
       }
   },
   components: {
-    // 'app-requests': requests,
+    'app-requests': requests,
     // 'app-search': search,
     //  'app-footer': footer
   },
