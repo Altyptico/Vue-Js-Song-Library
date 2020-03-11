@@ -15,7 +15,7 @@
                                           <label>Artist:</label><br/><input v-model.lazy="suggest.artist"  ><br/>
                                           <label>Genre:</label><br/><input  v-model.lazy="suggest.genre"  ><br/>
                                           <label>Year:</label><br/><input  v-model.lazy="suggest.year"  > <br/>
-                                          <label>Additional Notes:</label><br/><textarea v-model.lazy="suggest.notes" @keyup.tab="addNewSong"  type="text"></textarea><br/>
+                                          <label>Additional Notes:</label><br/><textarea v-on:keydown.enter="$event.stopPropagation()" v-model.lazy="suggest.notes" type="text"></textarea><br/>
                                           <button @click="addNewSong" @keyup.tab="addNewSong" >Submit Song</button> <!--click or enter refreshes the page-->
                                     </form>
                               </div>
@@ -85,6 +85,7 @@ export default {
             addNewSong: function(){
           this.songLibrary.push([this.suggest.song, this.suggest.artist, this.suggest.genre, this.suggest.year, this.suggest.notes]);
           console.log(this.songLibrary);
+          this.suggest="";
         }
       }
 
