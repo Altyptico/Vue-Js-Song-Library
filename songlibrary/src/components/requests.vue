@@ -1,15 +1,15 @@
 /* eslint-disable vue/no-parsing-error */
 <template>
-  <div class="request">
+  <nav class="request">
     <!-- <h1>Newsong:  {{newSong}}</h1> -->
       <ul id="navButtons">
         <li><input :value="song" @input="addSong" @keyup.enter="addNewSong" type="text" placeholder="Enter Song or Artist Name" ></li>
         <li><button @click="addNewSong">Search Songs</button></li> 
-        <li><button>Vote on Songs</button></li>
-        <li><button>Suggest a Song</button></li>
+        <li><router-link to="/Vote"><button>Vote on Songs</button></router-link></li>
+        <li><router-link to="/Suggest"><button>Suggest a Song</button></router-link></li>
       </ul>
       <!-- <div class="words">{{songLibrary}}</div> -->
-  </div>
+  </nav>
   
 </template>
 

@@ -1,6 +1,12 @@
 <template>
   <div>
         <h3> Suggest Songs</h3>
+            <form>
+                  <label>Name:</label><input><br/>
+                  <label>Artist:</label><input><br/>
+                  <label>Genre:</label><input><br/>
+                  <label>Year:</label><input>
+            </form>
 
       
   </div>
