@@ -1,14 +1,26 @@
 <template>
   <div>
-        <h3> Suggest a Song</h3>
-            <form>
-                  <label>Name:</label><input   :value="song" @input="addSong" @keyup.enter="addNewSong" ><br/>
-                  <label>Artist:</label><input :value="song" @input="addSong" @keyup.enter="addNewSong"><br/>
-                  <label>Genre:</label><input  :value="song" @input="addSong" @keyup.enter="addNewSong"><br/>
-                  <label>Year:</label><input  :value="song" @input="addSong" @keyup.enter="addNewSong"> <br/>
-                  <label>Additional Notes:</label><textarea :value="song" @input="addSong" @keyup.enter="addNewSong"></textarea><br/>
-                  <button @click="addNewSong" >Submit Song</button>
-            </form>
+         <div id="suggest">
+                  <div id="container">
+                             <div id="songSuggestion">
+                                    <h3> Suggest a Song</h3><br/>
+                                    <form >
+                                          <label>Name:</label><input   :value="song" @input="addSong" @keyup.enter="addNewSong" ><br/>
+                                          <label>Artist:</label><input :value="song" @input="addSong" @keyup.enter="addNewSong"><br/>
+                                          <label>Genre:</label><input  :value="song" @input="addSong" @keyup.enter="addNewSong"><br/>
+                                          <label>Year:</label><input  :value="song" @input="addSong" @keyup.enter="addNewSong"> <br/>
+                                          <label>Additional Notes:</label><textarea :value="song" @input="addSong" @keyup.enter="addNewSong"></textarea><br/>
+                                          <button @click="addNewSong" >Submit Song</button>
+                                    </form>
+                              </div>
+                              <div id="preview">
+                                          <h3>Preview Submission</h3>
+                                          <p>Name: </p>
+                              </div>      
+                                    
+                        </div>
+
+            </div>
 
             <p>{{songInfo}}</p>
       
@@ -65,7 +77,7 @@ export default {
 <style scoped>
 @import url('https://fonts.googleapis.com/css?family=Anton|Dosis:400,800|Francois+One|Montserrat&display=swap');
 
-h3{
+h3, p{
    font-family:'Francois One', 'sans-serif';
 }   
 
@@ -76,6 +88,7 @@ input{
 }
 label{
       padding-right: 10px;
+      padding-top: 0px;
       text-align: center;
       font-family:'Francois One', 'sans-serif';
 }
@@ -93,6 +106,22 @@ label{
         font-family:'Francois One', 'sans-serif';
         font-size: 18px;
         font-weight: bold;
+    }
+
+    #suggest{
+          display: inline-flex;
+ 
+    }
+    #container{
+          display: inline-flex;
+    }
+    #songSuggestion{
+          float: left;
+   
+    }
+    #preview{
+          float: right;
+
     }
    
 </style>
