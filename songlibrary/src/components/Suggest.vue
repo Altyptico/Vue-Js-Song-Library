@@ -11,12 +11,12 @@
                                           <label>Year:</label><br/><input  :value="suggest.year" @input="addSong" @keyup.enter="addNewSong"> <br/>
                                           <label>Additional Notes:</label><br/><textarea :value="suggest.notes" @input="addSong" @keyup.enter="addNewSong" type="text"></textarea><br/>
                                           <button @click="addNewSong" >Submit Song</button> -->
-                                           <label>Name:</label><br/><input  v-model.lazy="suggest.song" @input="addSong" @keyup.enter="addNewSong" ><br/>
-                                          <label>Artist:</label><br/><input v-model.lazy="suggest.artist" @input="addSong" @keyup.enter="addNewSong"><br/>
-                                          <label>Genre:</label><br/><input  v-model.lazy="suggest.genre" @input="addSong" @keyup.enter="addNewSong"><br/>
-                                          <label>Year:</label><br/><input  v-model.lazy="suggest.year" @input="addSong" @keyup.enter="addNewSong"> <br/>
-                                          <label>Additional Notes:</label><br/><textarea v-model.lazy="suggest.notes" @input="addSong" @keyup.enter="addNewSong" type="text"></textarea><br/>
-                                          <button @click="addNewSong" >Submit Song</button>
+                                           <label>Name:</label><br/><input  v-model.lazy="suggest.song"  @keyup.tab="addNewSong" ><br/> <!--@input="addSong"-->
+                                          <label>Artist:</label><br/><input v-model.lazy="suggest.artist"  @keyup.tab="addNewSong"><br/>
+                                          <label>Genre:</label><br/><input  v-model.lazy="suggest.genre"  @keyup.tab="addNewSong"><br/>
+                                          <label>Year:</label><br/><input  v-model.lazy="suggest.year"  @keyup.tab="addNewSong"> <br/>
+                                          <label>Additional Notes:</label><br/><textarea v-model.lazy="suggest.notes"  @keyup.tab="addNewSong" type="text"></textarea><br/>
+                                          <button @click="addNewSong" >Submit Song</button> <!--click or enter refreshes the page-->
                                     </form>
                               </div>
                               <div id="preview">
@@ -74,15 +74,14 @@ export default {
    },
   
       methods: {
-            addSong(event){
-                  this.song = event.target.value;
-                  this.$emit('songAdded', this.song); //error message: avoid mutating a prop directly since the value will be overwritten whenever the parent component re-renders. Use a data or computed property based on the prop's value https://www.youtube.com/watch?v=PPmg7ntQjzc//
+            // addSong(event){
+            //       this.song = event.target.value;
+            //       this.$emit('songAdded', this.song); //error message: avoid mutating a prop directly since the value will be overwritten whenever the parent component re-renders. Use a data or computed property based on the prop's value https://www.youtube.com/watch?v=PPmg7ntQjzc//
 
-            },
+            // },
             addNewSong: function(){
-          this.songInfo.push(this.suggest.song);
-          console.log(this.songInfo);
-          return this.song = '';
+          this.songLibrary.push(this.suggest.song);
+          console.log(this.songLibrary);
         }
       }
 
