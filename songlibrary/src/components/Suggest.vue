@@ -6,6 +6,7 @@
                   <label>Artist:</label><input :value="song" @input="addSong" @keyup.enter="addNewSong"><br/>
                   <label>Genre:</label><input  :value="song" @input="addSong" @keyup.enter="addNewSong"><br/>
                   <label>Year:</label><input  :value="song" @input="addSong" @keyup.enter="addNewSong"> <br/>
+                  <label>Additional Notes:</label><textarea :value="song" @input="addSong" @keyup.enter="addNewSong"></textarea><br/>
                   <button @click="addNewSong" >Submit Song</button>
             </form>
 
