@@ -11,12 +11,12 @@
                                           <label>Year:</label><br/><input  :value="suggest.year" @input="addSong" @keyup.enter="addNewSong"> <br/>
                                           <label>Additional Notes:</label><br/><textarea :value="suggest.notes" @input="addSong" @keyup.enter="addNewSong" type="text"></textarea><br/>
                                           <button @click="addNewSong" >Submit Song</button> -->
-                                           <label>Name:</label><br/><input  v-model.lazy="suggest.song"  @keyup.tab="addNewSong" ><br/> <!--@input="addSong"-->
-                                          <label>Artist:</label><br/><input v-model.lazy="suggest.artist"  @keyup.tab="addNewSong"><br/>
-                                          <label>Genre:</label><br/><input  v-model.lazy="suggest.genre"  @keyup.tab="addNewSong"><br/>
-                                          <label>Year:</label><br/><input  v-model.lazy="suggest.year"  @keyup.tab="addNewSong"> <br/>
-                                          <label>Additional Notes:</label><br/><textarea v-model.lazy="suggest.notes"  @keyup.tab="addNewSong" type="text"></textarea><br/>
-                                          <button @click="addNewSong" >Submit Song</button> <!--click or enter refreshes the page-->
+                                           <label>Name:</label><br/><input  v-model.lazy="suggest.song" ><br/> <!--@input="addSong"    @keyup.tab="addNewSong" -->
+                                          <label>Artist:</label><br/><input v-model.lazy="suggest.artist"  ><br/>
+                                          <label>Genre:</label><br/><input  v-model.lazy="suggest.genre"  ><br/>
+                                          <label>Year:</label><br/><input  v-model.lazy="suggest.year"  > <br/>
+                                          <label>Additional Notes:</label><br/><textarea v-model.lazy="suggest.notes" @keyup.tab="addNewSong"  type="text"></textarea><br/>
+                                          <button @click="addNewSong" @keyup.tab="addNewSong" >Submit Song</button> <!--click or enter refreshes the page-->
                                     </form>
                               </div>
                               <div id="preview">
@@ -62,10 +62,11 @@ export default {
               artist: "",
               genre:"",
               year: 0,
+              notes: ""
              
         },
         songLibrary: [
-            {name: 'This Must Be The Place', artist:'Talking Heads', genre: 'Alternative/Indie', year: 1983}
+            {name: 'This Must Be The Place', artist:'Talking Heads', genre: 'Alternative/Indie', year: 1983, notes:''}
             // {name: 'The Way I Am', artist:'Ingrid Michaelson', genre: 'Alternative/Indie', year: 2006}
         ]
         
@@ -82,7 +83,7 @@ export default {
 
             // },
             addNewSong: function(){
-          this.songLibrary.push(this.suggest.artist, this.suggest.genre, this.suggest.year);
+          this.songLibrary.push([this.suggest.song, this.suggest.artist, this.suggest.genre, this.suggest.year, this.suggest.notes]);
           console.log(this.songLibrary);
         }
       }
