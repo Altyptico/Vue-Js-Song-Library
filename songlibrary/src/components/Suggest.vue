@@ -4,7 +4,7 @@
                   <div id="container">
                              <div id="songSuggestion">
                                     <h3> Suggest a Song</h3><br/>
-                                    <form >
+                                    <form v-on:submit.prevent>
                                           <!-- <label>Name:</label><br/><input   :value="suggest.song" @input="addSong" @keyup.enter="addNewSong" ><br/>
                                           <label>Artist:</label><br/><input :value="suggest.artist" @input="addSong" @keyup.enter="addNewSong"><br/>
                                           <label>Genre:</label><br/><input  :value="suggest.genre" @input="addSong" @keyup.enter="addNewSong"><br/>
