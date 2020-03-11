@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <app-requests :newSong="song" @songAdded="song = $event" ></app-requests>
-    <router-view></router-view>
+    <app-requests ></app-requests>
+    <router-view :newSong="song" @songAdded="song = $event" ></router-view>
     <!-- 
     <app-search :songInfo="songInfo"></app-search>
     <app-footer :title="title" :year="year"></app-footer> -->

@@ -9,6 +9,7 @@
                   <button @click="addNewSong" >Submit Song</button>
             </form>
 
+            <p>{{songInfo}}</p>
       
   </div>
 </template>
