@@ -5,17 +5,21 @@
                              <div id="songSuggestion">
                                     <h3> Suggest a Song</h3><br/>
                                     <form >
-                                          <label>Name:</label><input   :value="song" @input="addSong" @keyup.enter="addNewSong" ><br/>
-                                          <label>Artist:</label><input :value="song" @input="addSong" @keyup.enter="addNewSong"><br/>
-                                          <label>Genre:</label><input  :value="song" @input="addSong" @keyup.enter="addNewSong"><br/>
-                                          <label>Year:</label><input  :value="song" @input="addSong" @keyup.enter="addNewSong"> <br/>
-                                          <label>Additional Notes:</label><textarea :value="song" @input="addSong" @keyup.enter="addNewSong"></textarea><br/>
+                                          <label>Name:</label><br/><input   :value="song" @input="addSong" @keyup.enter="addNewSong" ><br/>
+                                          <label>Artist:</label><br/><input :value="song" @input="addSong" @keyup.enter="addNewSong"><br/>
+                                          <label>Genre:</label><br/><input  :value="song" @input="addSong" @keyup.enter="addNewSong"><br/>
+                                          <label>Year:</label><br/><input  :value="song" @input="addSong" @keyup.enter="addNewSong"> <br/>
+                                          <label>Additional Notes:</label><br/><textarea :value="song" @input="addSong" @keyup.enter="addNewSong"></textarea><br/>
                                           <button @click="addNewSong" >Submit Song</button>
                                     </form>
                               </div>
                               <div id="preview">
                                           <h3>Preview Submission</h3>
-                                          <p>Name: </p>
+                                          <p>Name: </p><br/>
+                                          <p>Artist: </p><br/>
+                                          <p>Genre: </p><br/>
+                                          <p>Year: </p><br/>
+                                          <p>Additional Notes: </p>
                               </div>      
                                     
                         </div>
@@ -81,13 +85,19 @@ h3, p{
    font-family:'Francois One', 'sans-serif';
 }   
 
-input{
+input, textarea{
       padding: 10px;
-      margin: 20px 0;
+      margin: 10px 0;
       border: 1px solid #222;
+      width: 300px;
 }
+textarea{
+      padding-left: 60px;
+      height: 130px;
+}
+
 label{
-      padding-right: 10px;
+      padding-right: 5px;
       padding-top: 0px;
       text-align: center;
       font-family:'Francois One', 'sans-serif';
@@ -117,10 +127,12 @@ label{
     }
     #songSuggestion{
           float: left;
-   
+          padding: 10px;
+            padding-right: 250px;
     }
     #preview{
           float: right;
+           padding: 10px;
 
     }
    
