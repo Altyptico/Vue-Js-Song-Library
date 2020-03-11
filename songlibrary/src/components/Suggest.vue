@@ -5,28 +5,29 @@
                              <div id="songSuggestion">
                                     <h3> Suggest a Song</h3><br/>
                                     <form >
-                                          <label>Name:</label><br/><input   :value="song" @input="addSong" @keyup.enter="addNewSong" ><br/>
-                                          <label>Artist:</label><br/><input :value="song" @input="addSong" @keyup.enter="addNewSong"><br/>
-                                          <label>Genre:</label><br/><input  :value="song" @input="addSong" @keyup.enter="addNewSong"><br/>
-                                          <label>Year:</label><br/><input  :value="song" @input="addSong" @keyup.enter="addNewSong"> <br/>
-                                          <label>Additional Notes:</label><br/><textarea :value="song" @input="addSong" @keyup.enter="addNewSong"></textarea><br/>
+                                          <label>Name:</label><br/><input   :value="suggest.song" @input="addSong" @keyup.enter="addNewSong" required><br/>
+                                          <label>Artist:</label><br/><input :value="suggest.artist" @input="addSong" @keyup.enter="addNewSong"><br/>
+                                          <label>Genre:</label><br/><input  :value="suggest.genre" @input="addSong" @keyup.enter="addNewSong"><br/>
+                                          <label>Year:</label><br/><input  :value="suggest.year" @input="addSong" @keyup.enter="addNewSong"> <br/>
+                                          <label>Additional Notes:</label><br/><textarea :value="suggest.notes" @input="addSong" @keyup.enter="addNewSong"></textarea><br/>
                                           <button @click="addNewSong" >Submit Song</button>
                                     </form>
                               </div>
                               <div id="preview">
                                           <h3>Preview Submission</h3>
-                                          <p>Name: </p><br/>
-                                          <p>Artist: </p><br/>
-                                          <p>Genre: </p><br/>
-                                          <p>Year: </p><br/>
-                                          <p>Additional Notes: </p>
+
+                                          <p>Name: {{suggest.song}}</p><br/>
+                                          <p>Artist: {{suggest.artist}}</p><br/>
+                                          <p>Genre: {{suggest.genre}}</p><br/>
+                                          <p>Year: {{suggest.year}}</p><br/>
+                                          <p>Additional Notes: {{suggest.notes}}</p>
                               </div>      
                                     
                         </div>
 
             </div>
 
-            <p>{{songInfo}}</p>
+            <p>{{songLibrary}}</p>
       
   </div>
 </template>
@@ -45,14 +46,17 @@ export default {
               type: Array,
               default: function(){ return []}
           },
-          songInfo:{
-              type: Array,
-              default: function(){ return []}
-          }
+         
     },
    data() {
       return {
-        song: ''
+        suggest:{
+              song: "",
+              artist: "",
+              genre:"",
+              year: 0
+        },
+        
       }
    },
    components: {
@@ -66,8 +70,8 @@ export default {
 
         },
             addNewSong: function(){
-          this.songInfo.push(this.song);
-          console.log(this.songInfo);
+          this.songLibrary.push(this.song);
+          console.log(this.songLibrary);
           return this.song = '';
         }
       }
@@ -124,15 +128,18 @@ label{
     }
     #container{
           display: inline-flex;
+          
     }
     #songSuggestion{
           float: left;
           padding: 10px;
             padding-right: 250px;
+            margin-left: 40px;
     }
     #preview{
-          float: right;
-           padding: 10px;
+            float: right;
+            padding: 20px;
+            border: 1px dotted #ccc
 
     }
    
