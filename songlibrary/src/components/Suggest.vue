@@ -5,11 +5,17 @@
                              <div id="songSuggestion">
                                     <h3> Suggest a Song</h3><br/>
                                     <form >
-                                          <label>Name:</label><br/><input   :value="suggest.song" @input="addSong" @keyup.enter="addNewSong" required><br/>
+                                          <!-- <label>Name:</label><br/><input   :value="suggest.song" @input="addSong" @keyup.enter="addNewSong" ><br/>
                                           <label>Artist:</label><br/><input :value="suggest.artist" @input="addSong" @keyup.enter="addNewSong"><br/>
                                           <label>Genre:</label><br/><input  :value="suggest.genre" @input="addSong" @keyup.enter="addNewSong"><br/>
                                           <label>Year:</label><br/><input  :value="suggest.year" @input="addSong" @keyup.enter="addNewSong"> <br/>
-                                          <label>Additional Notes:</label><br/><textarea :value="suggest.notes" @input="addSong" @keyup.enter="addNewSong"></textarea><br/>
+                                          <label>Additional Notes:</label><br/><textarea :value="suggest.notes" @input="addSong" @keyup.enter="addNewSong" type="text"></textarea><br/>
+                                          <button @click="addNewSong" >Submit Song</button> -->
+                                           <label>Name:</label><br/><input  v-model.lazy="suggest.song" @input="addSong" @keyup.enter="addNewSong" ><br/>
+                                          <label>Artist:</label><br/><input v-model.lazy="suggest.artist" @input="addSong" @keyup.enter="addNewSong"><br/>
+                                          <label>Genre:</label><br/><input  v-model.lazy="suggest.genre" @input="addSong" @keyup.enter="addNewSong"><br/>
+                                          <label>Year:</label><br/><input  v-model.lazy="suggest.year" @input="addSong" @keyup.enter="addNewSong"> <br/>
+                                          <label>Additional Notes:</label><br/><textarea v-model.lazy="suggest.notes" @input="addSong" @keyup.enter="addNewSong" type="text"></textarea><br/>
                                           <button @click="addNewSong" >Submit Song</button>
                                     </form>
                               </div>
@@ -27,7 +33,7 @@
 
             </div>
 
-            <p>{{songLibrary}}</p>
+            <p>{{suggest.songLibrary}}</p>
       
   </div>
 </template>
@@ -37,24 +43,28 @@
 
 export default {
   
-       props: {
-          newSong:{
-              type: String,
-              default: ''
-          },
-          songLibrary:{
-              type: Array,
-              default: function(){ return []}
-          },
+      //  props: {
+      //     newSong:{
+      //         type: String,
+      //         default: ''
+      //     },
+      //     songLibrary:{
+      //         type: Array,
+      //         default: function(){ return []}
+      //     }
          
-    },
+//     },
    data() {
       return {
         suggest:{
               song: "",
               artist: "",
               genre:"",
-              year: 0
+              year: 0,
+             songLibrary: [
+            {name: 'This Must Be The Place', artist:'Talking Heads', genre: 'Alternative/Indie', year: 1983},
+            {name: 'The Way I Am', artist:'Ingrid Michaelson', genre: 'Alternative/Indie', year: 2006}
+          ]
         },
         
       }
@@ -65,13 +75,13 @@ export default {
   
       methods: {
             addSong(event){
-           this.song = event.target.value;
-           this.$emit('songAdded', this.song); //error message: avoid mutating a prop directly since the value will be overwritten whenever the parent component re-renders. Use a data or computed property based on the prop's value https://www.youtube.com/watch?v=PPmg7ntQjzc//
+                  this.song = event.target.value;
+                  this.$emit('songAdded', this.song); //error message: avoid mutating a prop directly since the value will be overwritten whenever the parent component re-renders. Use a data or computed property based on the prop's value https://www.youtube.com/watch?v=PPmg7ntQjzc//
 
-        },
+            },
             addNewSong: function(){
-          this.songLibrary.push(this.song);
-          console.log(this.songLibrary);
+          this.songInfo.push(this.suggest.song);
+          console.log(this.songInfo);
           return this.song = '';
         }
       }
