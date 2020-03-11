@@ -11,7 +11,7 @@
                                           <label>Year:</label><br/><input  :value="suggest.year" @input="addSong" @keyup.enter="addNewSong"> <br/>
                                           <label>Additional Notes:</label><br/><textarea :value="suggest.notes" @input="addSong" @keyup.enter="addNewSong" type="text"></textarea><br/>
                                           <button @click="addNewSong" >Submit Song</button> -->
-                                           <label>Name:</label><br/><input  v-model.lazy="suggest.song" ><br/> <!--@input="addSong"    @keyup.tab="addNewSong" -->
+                                           <label>Song Name:</label><br/><input  v-model.lazy="suggest.song" ><br/> <!--@input="addSong"    @keyup.tab="addNewSong" -->
                                           <label>Artist:</label><br/><input v-model.lazy="suggest.artist"  ><br/>
                                           <label>Genre:</label><br/><input  v-model.lazy="suggest.genre"  ><br/>
                                           <label>Year:</label><br/><input  v-model.lazy="suggest.year"  > <br/>
@@ -28,12 +28,12 @@
                                           <p>Year: {{suggest.year}}</p><br/>
                                           <p>Additional Notes: {{suggest.notes}}</p>
                               </div>      
-                                    
+                                    <p>{{songLibrary}}</p>
                         </div>
 
             </div>
 
-            <p>{{suggest.songLibrary}}</p>
+
       
   </div>
 </template>
@@ -108,7 +108,6 @@ input, textarea{
       width: 300px;
 }
 textarea{
-      padding-left: 60px;
       height: 130px;
 }
 
