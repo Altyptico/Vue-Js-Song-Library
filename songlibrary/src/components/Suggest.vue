@@ -1,6 +1,6 @@
 <template>
   <div>
-        <h3> Suggest Songs</h3>
+        <h3> Suggest a Song</h3>
             <form>
                   <label>Name:</label><input ><br/>
                   <label>Artist:</label><input><br/>
@@ -42,14 +42,19 @@ export default {
 <style scoped>
 @import url('https://fonts.googleapis.com/css?family=Anton|Dosis:400,800|Francois+One|Montserrat&display=swap');
 
+h3{
+   font-family:'Francois One', 'sans-serif';
+}   
+
 input{
       padding: 10px;
       margin: 20px 0;
       border: 1px solid #222;
 }
 label{
-          text-align: center;
-        font-family:'Francois One', 'sans-serif';
+      padding-right: 10px;
+      text-align: center;
+      font-family:'Francois One', 'sans-serif';
 }
    
 </style>
