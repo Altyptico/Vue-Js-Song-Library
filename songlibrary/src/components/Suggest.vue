@@ -5,13 +5,7 @@
                              <div id="songSuggestion">
                                     <h3> Suggest a Song</h3><br/>
                                     <form v-on:submit.prevent>
-                                          <!-- <label>Name:</label><br/><input   :value="suggest.song" @input="addSong" @keyup.enter="addNewSong" ><br/>
-                                          <label>Artist:</label><br/><input :value="suggest.artist" @input="addSong" @keyup.enter="addNewSong"><br/>
-                                          <label>Genre:</label><br/><input  :value="suggest.genre" @input="addSong" @keyup.enter="addNewSong"><br/>
-                                          <label>Year:</label><br/><input  :value="suggest.year" @input="addSong" @keyup.enter="addNewSong"> <br/>
-                                          <label>Additional Notes:</label><br/><textarea :value="suggest.notes" @input="addSong" @keyup.enter="addNewSong" type="text"></textarea><br/>
-                                          <button @click="addNewSong" >Submit Song</button> -->
-                                           <label>Song Name:</label><br/><input  v-model.lazy="suggest.song" ><br/> <!--@input="addSong"    @keyup.tab="addNewSong" -->
+                                           <label>Song Name:</label><br/><input  v-model.lazy="suggest.song" ><br/> 
                                           <label>Artist:</label><br/><input v-model.lazy="suggest.artist"  ><br/>
                                           <label>Genre:</label><br/><input  v-model.lazy="suggest.genre"  ><br/>
                                           <label>Year:</label><br/><input  v-model.lazy="suggest.year"  > <br/>
@@ -28,7 +22,12 @@
                                           <p>Year: {{suggest.year}}</p><br/>
                                           <p>Additional Notes: {{suggest.notes}}</p>
                               </div>      
-                                    <p v-for="item in songLibrary" v-bind:key="item.id">Song Name:  {{item.name}}<br/>Artist:   {{item.artist}}<br/>Genre:   {{item.genre}}<br/>Year:   {{item.Year}}<br/>Notes:   {{item.notes}}<br/>
+                                    <p v-for="item in songLibrary" v-bind:key="item.id">
+                                           {{item.name}}<br/>
+                                           {{item.artist}}<br/>
+                                             {{item.genre}}<br/>
+                                           {{item.Year}}<br/>
+                                            {{item.notes}}<br/> 
                                  </p>
                         </div>
 
@@ -58,17 +57,18 @@ export default {
    data() {
        
      return {
-        suggest:{
+        suggest:[{
               song: "",
               artist: "",
               genre:"",
               year: 0,
               notes: ""
              
-        },
+        }],
         songLibrary: [
-            {name: 'This Must Be The Place', artist:'Talking Heads', genre: 'Alternative/Indie', year: 1983, notes:''}
-            // {name: 'The Way I Am', artist:'Ingrid Michaelson', genre: 'Alternative/Indie', year: 2006}
+            // {name: 'This Must Be The Place', artist:'Talking Heads', genre: 'Alternative/Indie', year: 1983, notes:''},
+            // {name: 'The Way I Am', artist:'Ingrid Michaelson', genre: 'Alternative/Indie', year: 2006},
+            {name: '', artist:'', genre: '', year: 0}, 
         ]
         
       }
