@@ -28,7 +28,8 @@
                                           <p>Year: {{suggest.year}}</p><br/>
                                           <p>Additional Notes: {{suggest.notes}}</p>
                               </div>      
-                                    <p>{{songLibrary}}</p>
+                                    <p v-for="item in songLibrary" v-bind:key="item.id">Song Name:  {{item.name}}<br/>Artist:   {{item.artist}}<br/>Genre:   {{item.genre}}<br/>Year:   {{item.Year}}<br/>Notes:   {{item.notes}}<br/>
+                                 </p>
                         </div>
 
             </div>
@@ -48,10 +49,10 @@ export default {
       //         type: String,
       //         default: ''
       //     },
-      //     songLibrary:{
-      //         type: Array,
-      //         default: function(){ return []}
-      //     }
+//           songLibrary:{
+//               type: Array,
+//               default: function(){ return []}
+//           }
          
 //     },
    data() {
