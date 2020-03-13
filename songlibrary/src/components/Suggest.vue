@@ -22,13 +22,9 @@
                                           <p>Year: {{year}}</p><br/>
                                           <p>Additional Notes: {{notes}}</p>
                               </div>      
-                                    <p v-for="item in songLibrary" v-bind:key="item.id">
-                                           {{item.name}}<br/>
-                                           {{item.artist}}<br/>
-                                             {{item.genre}}<br/>
-                                           {{item.Year}}<br/>
-                                            {{item.notes}}<br/> 
-                                 </p>
+                                    <ul v-for="item in suggest" v-bind:key="item">
+                                          <li v-for="(sel, index) in songLibrary" v-bind:key="index"></li>
+                                 </ul>
                         </div>
 
             </div>
@@ -57,16 +53,17 @@ export default {
    data() {
        
      return {
-       
+           suggest:[{
               song: "This Must Be The Place",
               artist: "Talking Heads",
               genre:"Alternative/Indie",
               year: 0,
-              notes: "good song",
+              notes: "good song"
+           }],
              
         songLibrary: [
             {name: 'This Must Be The Place', artist:'Talking Heads', genre: 'Alternative/Indie', year: 1983, notes:'', id:1},
-            {name: 'The Way I Am', artist:'Ingrid Michaelson', genre: 'Alternative/Indie', year: 2006}
+            {name: 'The Way I Am', artist:'Ingrid Michaelson', genre: 'Alternative/Indie', year: 2006, id:2}
    
         ]
         
