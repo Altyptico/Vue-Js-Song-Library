@@ -22,8 +22,8 @@
                                           <p>Year: {{year}}</p><br/>
                                           <p>Additional Notes: {{notes}}</p>
                               </div>      
-                                    <ul v-for="item in suggest" v-bind:key="item">
-                                          <li v-for="(sel, index) in songLibrary" v-bind:key="index"></li>
+                                    <ul class="submissions">
+                                          <li v-for="(sel, index) in suggest" v-bind:key="index"></li>
                                  </ul>
                         </div>
 
