@@ -5,22 +5,22 @@
                              <div id="songSuggestion">
                                     <h3> Suggest a Song</h3><br/>
                                     <form v-on:submit.prevent>
-                                           <label>Song Name:</label><br/><input  v-model.lazy="suggest.song" ><br/> 
-                                          <label>Artist:</label><br/><input v-model.lazy="suggest.artist"  ><br/>
-                                          <label>Genre:</label><br/><input  v-model.lazy="suggest.genre"  ><br/>
-                                          <label>Year:</label><br/><input  v-model.lazy="suggest.year"  > <br/>
-                                          <label>Additional Notes:</label><br/><textarea v-on:keydown.enter="$event.stopPropagation()" v-model.lazy="suggest.notes" type="text"></textarea><br/>
+                                           <label>Song Name:</label><br/><input  v-model.lazy="song" ><br/> 
+                                          <label>Artist:</label><br/><input v-model.lazy="artist"  ><br/>
+                                          <label>Genre:</label><br/><input  v-model.lazy="genre"  ><br/>
+                                          <label>Year:</label><br/><input  v-model.lazy="year"  > <br/>
+                                          <label>Additional Notes:</label><br/><textarea v-on:keydown.enter="$event.stopPropagation()" v-model.lazy="notes" type="text"></textarea><br/>
                                           <button @click="addNewSong" @keyup.tab="addNewSong" >Submit Song</button> <!--click or enter refreshes the page-->
                                     </form>
                               </div>
                               <div id="preview">
                                           <h3>Preview Submission</h3>
 
-                                          <p>Song Name: {{suggest.song}}</p><br/>
-                                          <p>Artist: {{suggest.artist}}</p><br/>
-                                          <p>Genre: {{suggest.genre}}</p><br/>
-                                          <p>Year: {{suggest.year}}</p><br/>
-                                          <p>Additional Notes: {{suggest.notes}}</p>
+                                          <p>Song Name: {{song}}</p><br/>
+                                          <p>Artist: {{artist}}</p><br/>
+                                          <p>Genre: {{genre}}</p><br/>
+                                          <p>Year: {{year}}</p><br/>
+                                          <p>Additional Notes: {{notes}}</p>
                               </div>      
                                     <p v-for="item in songLibrary" v-bind:key="item.id">
                                            {{item.name}}<br/>
@@ -57,25 +57,26 @@ export default {
    data() {
        
      return {
-        suggest:[{
-              song: "",
-              artist: "",
-              genre:"",
+       
+              song: "This Must Be The Place",
+              artist: "Talking Heads",
+              genre:"Alternative/Indie",
               year: 0,
-              notes: ""
+              notes: "good song",
              
-        }],
         songLibrary: [
             // {name: 'This Must Be The Place', artist:'Talking Heads', genre: 'Alternative/Indie', year: 1983, notes:''},
             // {name: 'The Way I Am', artist:'Ingrid Michaelson', genre: 'Alternative/Indie', year: 2006},
-            {name: '', artist:'', genre: '', year: 0}, 
+            {name: '', artist:'', genre: '', year: 0, notes:''}, 
         ]
         
       }
    },
-   components: {
-     
-   },
+//    computed: {
+//          addObject: function () {
+//               return this.songLibrary.push(this.suggest);   
+//          }
+//    },
   
       methods: {
             // addSong(event){
@@ -84,8 +85,9 @@ export default {
 
             // },
             addNewSong: function(){
-          this.songLibrary.push([this.suggest.song, this.suggest.artist, this.suggest.genre, this.suggest.year, this.suggest.notes]);
-          console.log(this.songLibrary);
+          this.songLibrary.push([this.song, this.artist, this.genre, this.year, this.notes]);
+      //      console.log(this.song, this.artist, this.genre, this.year, this.notes);
+      //     console.log(this.songLibrary[0]);
           this.suggest="";
         }
       }
