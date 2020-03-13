@@ -7,7 +7,7 @@
         <li><router-link to="/Vote" exact><button>Vote on Songs</button></router-link></li>
         <li><router-link to="/Suggest" exact><button>Suggest a Song</button></router-link></li>
         <li><button>Search Songs</button></li>
-        <li><input :value="song" @input="addSong" @keyup.enter="addNewSong" type="text" placeholder="Enter Song or Artist Name" ></li>
+        <li><input v-model="search" type="text" placeholder="Enter Song or Artist Name" ></li>
          
         
       </ul>
@@ -18,38 +18,25 @@
 
 <script>
 export default {
-    props: {
-          newSong:{
-              type: String,
-              default: ''
-          },
-          songLibrary:{
-              type: Array,
-              default: function(){ return []}
-          },
-          songInfo:{
-              type: Array,
-              default: function(){ return []}
-          }
-    },
+   
    data() {
       return {
-          song: ''
+          song: '',
+          search: ''
       }
     },
 
     methods: {
-        addSong(event){
-           this.song = event.target.value;
-           this.$emit('songAdded', this.song); //error message: avoid mutating a prop directly since the value will be overwritten whenever the parent component re-renders. Use a data or computed property based on the prop's value https://www.youtube.com/watch?v=PPmg7ntQjzc//
+       
+    },
+    // computed: {
+    //         filteredSongs: function (){
+    //             return this.songs.filter((songs)) => {
+    //                 return boolean;
+    //             }
+    //         }
 
-        },
-        addNewSong: function(){
-          this.songInfo.push(this.song);
-          console.log(this.songInfo);
-          return this.song = '';
-        }
-    }
+    // }
 
 
 }
